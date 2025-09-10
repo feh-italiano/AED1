@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define true 1
+#define false 0
+
+int main(int argc, char **argv) {
+    int c[300];
+    int i, ans;
+    char string[1010];
+
+    while (scanf("%s", string) != EOF) {
+        i = 0;
+        memset(c, 0, sizeof(c));
+
+        while (string[i] != '\0') 
+            c[(unsigned char)string[i++]]++; 
+
+        for (i = 0, ans = 0; i < 300; ++i)
+            if (c[i] & 1)
+                ++ans;
+
+        printf("%d\n", ans <= 1 ? 0 : ans - 1);
+    }
+
+    return 0;
+}
