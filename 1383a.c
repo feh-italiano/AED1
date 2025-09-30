@@ -6,31 +6,28 @@
 
 bool confere_valido(int sudoku[9][9]){
     
-    //CONFERE NA LINHA
     for (int i = 0; i < TAMANHO; i++) {
-        bool numeros[10] = {false}; // índice 1-9
+        bool numeros[10] = {false};
         for (int j = 0; j < TAMANHO; j++) {
             int num = sudoku[i][j];
             if (numeros[num]) {
-                return false; // Número repetido na linha
+                return false;
             }
             numeros[num] = true;
         }
     }
     
-    //CONFERE NA COLUNA
     for (int j = 0; j < TAMANHO; j++) {
         bool numeros[10] = {false};
         for (int i = 0; i < TAMANHO; i++) {
             int num = sudoku[i][j];
             if (numeros[num]) {
-                return false; // Número repetido na coluna
+                return false;
             }
             numeros[num] = true;
         }
     }
     
-    //CONFERE NO 3x3
     for (int bloco = 0; bloco < TAMANHO; bloco++) {
         bool numeros[10] = {false};
         int inicio_linha = (bloco / SUBGRID) * SUBGRID;
@@ -70,4 +67,5 @@ int main()
                 printf("NAO\n\n");
             }
     }
+
 }
